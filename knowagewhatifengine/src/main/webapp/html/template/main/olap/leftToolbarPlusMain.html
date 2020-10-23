@@ -1,5 +1,5 @@
 <div class="central-panel" layout="row" flex >
-	<div id="leftaxis" leftaxis class='knowage-blue dimension-left-toolbar' layout="column" ng-drop="true" ng-drop-success="dropLeft($data,$event)">
+	<div id="leftaxis" class='knowage-blue dimension-left-toolbar' layout="column" ng-drop="true" ng-drop-success="dropLeft($data,$event)">
 		
 		<div class="left-axis-shift" ng-if="leftSliderNeeded">
 			<md-button style="right:10px" class="md-icon-button" aria-label="Favorite" ng-click="dimensionShift('down')" >
@@ -7,8 +7,9 @@
 			</md-button>
 		</div>	
 		
-		<div class="left-axis" layout="column">
-			<div  ng-repeat="row in rows|limitTo:maxRows:leftStart">
+		<div class="left-axis" layout="column" ng-scrollbars>
+			<!--div class="left-axis-element" ng-repeat="row in rows|limitTo:maxRows:leftStart"-->
+			<div class="left-axis-element" ng-repeat="row in rows">
 				<div class="filter-toolbar-element-left"  
 					 ng-drag="true" 
 					 ng-drag-data="row" 

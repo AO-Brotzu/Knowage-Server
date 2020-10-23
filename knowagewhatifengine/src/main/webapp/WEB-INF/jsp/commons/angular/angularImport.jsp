@@ -24,6 +24,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<link rel="stylesheet" href="<%=urlBuilder.getResourcePath(spagoBiContext,"/node_modules/@fortawesome/fontawesome-free/css/all.css")%>"/>
 	<link rel="stylesheet" href="<%=urlBuilder.getResourcePath(spagoBiContext,"/node_modules/@fortawesome/fontawesome-free/css/v4-shims.min.css")%>"/>
 
+	<!-- jquery and scrollbar -->
+	<script type="text/javascript" src="<%=urlBuilder.getResourcePath(spagoBiContext, "/node_modules/jquery/dist/jquery.min.js")%>"></script> 
+	<script type="text/javascript" src="<%=urlBuilder.getResourcePath(spagoBiContext, "/node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js")%>"></script>
+
 	<!-- angular reference-->
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/lib/angular/angular_1.4/angular.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/js/lib/angular/angular_1.4/angular-animate.min.js"></script>
@@ -71,6 +75,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 	<script type="text/javascript" src="<%=urlBuilder.getResourcePath(spagoBiContext,"/node_modules/codemirror/lib/codemirror.js")%>"></script>
 	<script type="text/javascript" src="<%=urlBuilder.getResourcePath(spagoBiContext,"/node_modules/codemirror/mode/sql/sql.js")%>"></script>
 	<script type="text/javascript" src="<%=urlBuilder.getResourcePath(spagoBiContext,"/node_modules/angular-ui-codemirror/src/ui-codemirror.js")%>"></script>
+	
+	<!-- ng-scrollbar -->
+	<script type="text/javascript" src="<%=urlBuilder.getResourcePath(spagoBiContext, "/node_modules/ng-scrollbars/dist/scrollbars.min.js")%>"></script>
+	<link rel="stylesheet" href="<%=urlBuilder.getResourcePath(spagoBiContext,"/node_modules/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css")%>" type="text/css"/>
 	
 	<link rel="stylesheet" type="text/css" href="<%=urlBuilder.getResourcePath(spagoBiContext,"/themes/commons/css/customStyle.css")%>">
 	

@@ -762,24 +762,6 @@ if ($scope.dtAssociatedLevels.length == 0 && $scope.dtMaxRows == 0) {
 	}
 	/******************************************************************************/
 
-	$scope.dimensionShift = function(direction) {
-		if (direction == 'left'
-				&& $scope.columns.length - 1 - $scope.topStart >= $scope.maxCols) {
-			$scope.topStart++;
-		}
-		if (direction == 'right' && $scope.topStart > 0) {
-			$scope.topStart--;
-		}
-		if (direction == 'up'
-				&& $scope.rows.length - 1 - $scope.leftStart >= $scope.maxRows) {
-			$scope.leftStart++;
-		}
-		if (direction == 'down' && $scope.leftStart) {
-			$scope.leftStart--;
-		}
-
-	}
-
 	$scope.openDtDialog = function(ev) {
 		$scope.dtAssociatedLevels = [];
 		$mdDialog

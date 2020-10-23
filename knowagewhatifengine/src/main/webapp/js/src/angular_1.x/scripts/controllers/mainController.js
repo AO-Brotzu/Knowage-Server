@@ -112,7 +112,6 @@ function olapFunction($scope, $rootScope,$timeout, $window, $mdDialog, $http, $s
 	$scope.index = 0;
 	$scope.numVisibleFilters = 5;
 	$scope.indexChangingSer = indexChangingService;
-	$scope.shiftNeeded;
 
 	$scope.modelConfig;
 	$scope.modelConfigBuffer = [];
@@ -226,7 +225,7 @@ function olapFunction($scope, $rootScope,$timeout, $window, $mdDialog, $http, $s
 
 		$scope.rowsAxisOrdinal = source.rowsAxisOrdinal;
 		$scope.showMdxVar = source.mdxFormatted;
-		
+
 		//codemirror initializer
 	    $scope.codemirrorLoaded = function(_editor) {
 	        $scope._doc = _editor.getDoc();
@@ -246,7 +245,7 @@ function olapFunction($scope, $rootScope,$timeout, $window, $mdDialog, $http, $s
 	        mode: "text/x-sql",
 	        onLoad: $scope.codemirrorLoaded
 	    };
-	    
+
 	    $scope.MDXWithoutCF = source.MDXWITHOUTCF;
 		$scope.formulasData = source.formulas;
 		$scope.ready = false;

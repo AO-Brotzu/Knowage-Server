@@ -18,7 +18,7 @@
 (function() {
 
 
-angular.module('filter_panel',['sbiModule','olap.services'])
+angular.module('filter_panel',['sbiModule','olap.services','ngScrollbars'])
 .directive('filterPanel',function(sbiModule_config){
 	return{
 		restrict: "E",
@@ -32,68 +32,11 @@ angular.module('filter_panel',['sbiModule','olap.services'])
 	}
 })
 
-.directive('topaxis',function(sbiModule_config){
-
-	function link(scope,element,attrs){
-		scope.$watch(function(){
-			return element[0].offsetWidth;
-		},function(newValue,oldValue){
-			var taw = newValue - 66;
-			scope.maxCols = Math.round(taw/200);
-			if(scope.columns){
-				scope.topSliderNeeded = scope.columns.length > scope.maxCols? true : false;
-			}
-
-		})
+.config(function (ScrollBarsProvider) {
+	ScrollBarsProvider.defaults = {
+		theme: 'light-3',
+		autoHideScrollbar: false
 	};
-	return{
-		restrict: "A",
-		link:link
-	}
-})
-
-.directive('leftaxis',function(sbiModule_config){
-
-	function link(scope,element,attrs){
-		scope.$watch(function(){
-			return element[0].offsetHeight;
-		},function(newValue,oldValue){
-			var lah = newValue - 66;
-			scope.maxRows = Math.round(lah/175);
-			if(scope.rows){
-				scope.leftSliderNeeded = scope.rows.length > scope.maxRows? true : false;
-			}
-
-		})
-	};
-	return{
-		restrict: "A",
-		link:link
-	}
-})
-
-.directive('filterpanel',function(sbiModule_config){
-
-	function link(scope,element,attrs){
-		scope.$watch(function(){
-			return element[0].offsetWidth;
-		},function(newValue,oldValue){
-			var faw = newValue - 66;
-			scope.numVisibleFilters = Math.round(faw/200);
-			if(scope.filterCardList){
-				scope.shiftNeeded = scope.filterCardList.length >  scope.numVisibleFilters ? true
-						: false;
-
-				if(!scope.shiftNeeded)
-					scope.index = 0;
-			}
-
-		})
-	};
-	return{
-		restrict: "A",
-		link:link
-	}
 })
 
 
@@ -801,16 +744,6 @@ function filterPanelController($scope, $timeout, $window, $mdDialog, $http, $sce
 		}
 		return false;
 	}
-
-	/**
-	 * Filter shift if necessary
-	 **/
-	//Function for scrolling trough filters/rows/columns if necessary
-	$scope.filterShift = function(direction, index, array, numVisibleFilters) {
-
-		$scope.index = indexChangingService.changeIndexValue(direction, index, array, numVisibleFilters);
-
-	};
 
 	//setting visibility of shift buttons if needed
 //	checkShift = function(){

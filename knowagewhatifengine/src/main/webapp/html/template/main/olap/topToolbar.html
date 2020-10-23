@@ -4,15 +4,10 @@
 		&nbsp;
 	</md-toolbar>
 	
-	<md-toolbar id="topaxis" flex topaxis class='md-toolbar-tools knowage-blue dimension-top-toolbar' ng-drop="true" ng-drop-success="dropTop($data,$event)" layout="row">
+	<md-toolbar id="topaxis" flex class='md-toolbar-tools knowage-blue dimension-top-toolbar' ng-drop="true" ng-drop-success="dropTop($data,$event)" layout="row">
 
-		<div class="top-shift" ng-show="topSliderNeeded">
-			<md-button class="md-icon-button" aria-label="Favorite" ng-click="dimensionShift('left')" ><!-- topSliderNeeded -->
-				<md-icon md-font-icon="fa fa-arrow-circle-o-left fa-2x" ></md-icon>
-			</md-button>
-		</div>
-		<div class="top-axis-container" layout="row">
-			<div ng-repeat="column in columns | limitTo:maxCols:topStart" layout="row" class="top-axis-element">
+		<div class="top-axis-container" layout="row" ng-scrollbars>
+			<div ng-repeat="column in columns" layout="row" class="top-axis-element">
 				<div class="filter-toolbar-element" ng-drag="true" layout="row" ng-drag-data="column" layout-align="start center"  ng-drag-success="dragSuccess('top',$index)" id="top-{{column.name}}">
 			
 					<md-button class="md-icon-button"  ng-click="showMultiHierDialog(e,column)" ng-show="column.hierarchies.length > 1">
@@ -34,12 +29,6 @@
 				</div>
 			</div>
 			<div flex class="axisDropzone">{{translate.load('sbi.olap.drop.dimension')}}</div>
-		</div>
-		
-		<div class="top-shift" ng-show="topSliderNeeded">
-			<md-button class="md-icon-button" aria-label="Favorite" ng-click="dimensionShift('right')" ><!--  -->
-				<md-icon md-font-icon="fa fa-arrow-circle-o-right fa-2x" ></md-icon>
-			</md-button>
 		</div>
 		
 		<div style="width:2px;height:100%;background-color: white;"></div>
